@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 import { db } from "../firebase.config";
 import ArrowRightIcon from "../assets/svg/keyboardArrowRightIcon.svg?component";
@@ -41,7 +42,7 @@ const SignUp = () => {
 
 			navigate("/");
 		} catch (error) {
-			console.log(error.code);
+			toast.error("Something went wrong with registration");
 		}
 	};
 
